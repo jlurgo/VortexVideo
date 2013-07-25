@@ -3,7 +3,11 @@
 // by Richard Dancsi, www.wimagguc.com
 //
 
-var DOCUMENT_ROOT = './app';
+process.env.PWD = process.cwd()
+
+console.log(process.env.PWD);
+
+var DOCUMENT_ROOT = './public';
 var DIRECTORY_INDEX = '/index.html';
 
 var port = process.env.PORT || 8080;
