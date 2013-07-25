@@ -40,7 +40,7 @@ NodoTransmisorVideo.prototype.start = function(){
                                             this.pedidoDeFrameRecibido.bind(this));
 };
 
-NodoReceptorVideo.prototype.enviarFrame = function(){
+NodoTransmisorVideo.prototype.enviarFrame = function(){
     var canvas = $('<canvas>')[0];
     canvas.width  = _this.video.videoWidth;
     canvas.height = _this.video.videoHeight;
@@ -54,7 +54,7 @@ NodoReceptorVideo.prototype.enviarFrame = function(){
     });
 };
 
-NodoReceptorVideo.prototype.pedidoDeFrameRecibido = function(mensaje){
+NodoTransmisorVideo.prototype.pedidoDeFrameRecibido = function(mensaje){
     this.enviarFrame();
 };
 
