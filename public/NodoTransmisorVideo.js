@@ -42,14 +42,14 @@ NodoTransmisorVideo.prototype.start = function(){
 
 NodoTransmisorVideo.prototype.enviarFrame = function(){
     var canvas = $('<canvas>')[0];
-    canvas.width  = _this.video.videoWidth;
-    canvas.height = _this.video.videoHeight;
+    canvas.width  = this.video.videoWidth;
+    canvas.height = this.video.videoHeight;
     var ctx = canvas.getContext('2d');
-    ctx.drawImage(_this.video, 0, 0);
+    ctx.drawImage(this.video, 0, 0);
     var imagen_serializada = canvas.toDataURL('image/jpeg');
-    _this.portal.enviarMensaje({
+    this.portal.enviarMensaje({
         tipoDeMensaje: "vortex.video.frame",
-        usuarioTransmisor: _this.o.nombreUsuario,
+        usuarioTransmisor: this.o.nombreUsuario,
         frame: imagen_serializada
     });
 };
