@@ -1,11 +1,13 @@
 {
-  "name" : "VortexVideo",
+  "name" : "vortexvideo",
   "version" : "1.0.0",
   "private" : false,
   "engines" : {
     "node": "0.10.13",
     "npm": "1.3.2"
   },
-  "dependencies" : {},
+  "dependencies" : {
+	
+  },
   "devDependencies": {}
 }
