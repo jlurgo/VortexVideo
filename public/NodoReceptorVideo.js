@@ -12,6 +12,13 @@ NodoReceptorVideo.prototype.start = function(){
     this.portal.pedirMensajes(new FiltroAND([new FiltroXClaveValor("tipoDeMensaje", "vortex.video.frame"),
                                              new FiltroXClaveValor("usuarioTransmisor", this.o.nombreUsuarioTransmisor)]),
                                             this.frameRecibido.bind(this));
+    var _this = this;
+    this.ui.click(function(){
+        _this.portal.enviarMensaje({
+            tipoDeMensaje: "vortex.video.pedidoDeFrame",
+            usuarioTransimisor: _this.o.nombreUsuarioTransmisor
+        });
+    });
 };
 
 NodoReceptorVideo.prototype.frameRecibido = function(mensaje){

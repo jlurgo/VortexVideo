@@ -32,18 +32,30 @@ NodoTransmisorVideo.prototype.start = function(){
 	}
     
     $(this.video).click(function(){
-        var canvas = $('<canvas>')[0];
-        canvas.width  = _this.video.videoWidth;
-        canvas.height = _this.video.videoHeight;
-        var ctx = canvas.getContext('2d');
-        ctx.drawImage(_this.video, 0, 0);
-        var imagen_serializada = canvas.toDataURL('image/jpeg');
-        _this.portal.enviarMensaje({
-            tipoDeMensaje: "vortex.video.frame",
-            usuarioTransmisor: _this.o.nombreUsuario,
-            frame: imagen_serializada
-        });
+        _this.enviarFrame();
     });
+    
+    this.portal.pedirMensajes(new FiltroAND([new FiltroXClaveValor("tipoDeMensaje", "vortex.video.pedidoDeFrame"),
+                                             new FiltroXClaveValor("usuarioTransmisor", this.o.nombreUsuario)]),
+                                            this.pedidoDeFrameRecibido.bind(this));
+};
+
+NodoReceptorVideo.prototype.enviarFrame = function(){
+    var canvas = $('<canvas>')[0];
+    canvas.width  = _this.video.videoWidth;
+    canvas.height = _this.video.videoHeight;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(_this.video, 0, 0);
+    var imagen_serializada = canvas.toDataURL('image/jpeg');
+    _this.portal.enviarMensaje({
+        tipoDeMensaje: "vortex.video.frame",
+        usuarioTransmisor: _this.o.nombreUsuario,
+        frame: imagen_serializada
+    });
+};
+
+NodoReceptorVideo.prototype.pedidoDeFrameRecibido = function(mensaje){
+    this.enviarFrame();
 };
 
 NodoTransmisorVideo.prototype.conectarCon = function(nodo){
