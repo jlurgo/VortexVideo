@@ -7,7 +7,6 @@ process.env.PWD = process.cwd()
 
 console.log(process.env.PWD);
 
-
 var port = process.env.PORT || 8080;
 
 var zlib = require('zlib');
@@ -38,9 +37,9 @@ http.createServer(function(request, response) {
 		acceptEncoding = '';
 	}
 
-	fs.exists(filePath, function(exists) {
+	path.exists(filePath, function(exists) {
 
-		//if (exists) {
+		if (exists) {
 			fs.readFile(filePath, function(error, content) {
 				if (error) {
 					response.writeHead(500);
@@ -61,11 +60,11 @@ http.createServer(function(request, response) {
 					}
 				}
 			});
-//		}
-//		else {
-//			response.writeHead(404);
-//			response.end();
-//		}
+		}
+		else {
+			response.writeHead(404);
+			response.end();
+		}
 	});
 
 }).listen(port);
