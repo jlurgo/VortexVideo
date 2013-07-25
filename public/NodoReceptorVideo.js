@@ -16,7 +16,7 @@ NodoReceptorVideo.prototype.start = function(){
     this.ui.click(function(){
         _this.portal.enviarMensaje({
             tipoDeMensaje: "vortex.video.pedidoDeFrame",
-            usuarioTransimisor: _this.o.nombreUsuarioTransmisor
+            usuarioTransmisor: _this.o.nombreUsuarioTransmisor
         });
     });
 };
