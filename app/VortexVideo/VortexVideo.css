@@ -1,0 +1,34 @@
+#plantillas{
+    display:none;    
+}
+
+.transmisor_video #lbl_nombre_usuario,
+.receptor_video #lbl_nombre_usuario{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.transmisor_video #lbl_nombre_usuario{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: yellow;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.transmisor_video,
+.receptor_video{
+    position:relative;
+    display:inline-block;
+    vertical-align: top;
+}
+
+.receptor_video img{
+    height: 240px;
+    width: 320px;
+}
