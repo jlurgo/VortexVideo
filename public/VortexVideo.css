@@ -29,18 +29,33 @@
     -moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
-    border: 1px black solid;
     height: 240px;  
     width: 320px;
+    background-color:orange;
+    margin:5px;
 }
 
-.receptor_video img,
-.transmisor_video video{
+.receptor_video img{
+    height: 240px;
+    width: 320px;
     -moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
-    height: 240px;
+}
+
+.transmisor_video #overlay {
+    position: absolute;
     width: 320px;
+    height: 240px;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+	background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="8" width="8"><g transform="translate(0,-972.36218)"><path fill="#fff" d="m0,972.36c4.4183,0,8,3.5817,8,8v-8h-8z"/></g></svg>'),
+        url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="8" width="8"><g transform="translate(0,-972.36218)"><path fill="#fff" d="m0,980.36c0-4.4183,3.5817-8,8-8h-8v8z"/></g></svg>'),
+        url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="8" width="8"><g transform="translate(0,-972.36218)"><path fill="#fff" d="m8,980.36c-4.4183,0-8-3.5817-8-8v8h8z"/></g></svg>'),
+        url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="8" width="8"><g transform="translate(0,-972.36218)"><path fill="#fff" d="m8,972.36c0,4.4183-3.5817,8-8,8h8v-8z"/></g></svg>');
+	background-position: top right, top left, bottom left, bottom right;
+	background-repeat: no-repeat;
 }
 
 .no-close .ui-dialog-titlebar-close {
