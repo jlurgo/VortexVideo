@@ -2,6 +2,14 @@
     display:none;    
 }
 
+#panel_buscador{
+   margin-left: 5px;    
+}
+
+#panel_buscador #txt_nombre_amigo{
+   margin-top: 10px;    
+}
+
 .transmisor_video #lbl_nombre_usuario,
 .receptor_video #lbl_nombre_usuario{
     position: absolute;
