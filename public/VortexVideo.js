@@ -1,6 +1,7 @@
 $(function () { 
     var router =  new NodoRouter("principal"); 
             
+    //var clienteHTTP = new NodoClienteHTTP('http://localhost:3000', 100);             
     var clienteHTTP = new NodoClienteHTTP('http://router-vortex.herokuapp.com', 100);             
     router.conectarBidireccionalmenteCon(clienteHTTP);
     
