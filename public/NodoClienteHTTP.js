@@ -63,13 +63,14 @@ var NodoClienteHTTP = function (url, intervalo_polling) {
                 mensajes_vortex: JSON.stringify(datosSalida)
             },
             success: function (responseData, textStatus, jqXHR) {
-                var mensajesRecibidos = $.parseJSON(responseData).contenidos;
-
-                mensajesRecibidos.forEach(function (element, index, array) {
-                    console.log("mensaje recibido:", element);
-                    receptor.recibirMensaje(element);
-                });
-
+                if(responseData != ""){
+                    var mensajesRecibidos = $.parseJSON(responseData).contenidos;
+    
+                    mensajesRecibidos.forEach(function (element, index, array) {
+                        console.log("mensaje recibido:", element);
+                        receptor.recibirMensaje(element);
+                    });
+                }
                 setTimeout(enviarYRecibirMensajes, intervaloPolling);
             },
 
