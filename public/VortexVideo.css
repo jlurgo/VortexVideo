@@ -44,6 +44,9 @@
 }
 
 .receptor_video img{
+    -moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
     height: 240px;
     width: 320px;
     -moz-border-radius: 10px;
