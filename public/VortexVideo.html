@@ -14,7 +14,7 @@
         </div>	
         
         <div id="plantillas">
-            <div id="plantilla_app_vortex_video" title="Iniciar Sesión">
+            <div id="plantilla_app_vortex_video">
                 <div id="panel_buscador">
                     <input id="txt_nombre_amigo" type="text"/>
                     <input id="btn_crear_receptor" type="button" class="btn btn-primary" value="Agregar Amigo"/>
@@ -30,11 +30,17 @@
             <div id="plantilla_receptor_video" class="receptor_video">
                 <div id="lbl_nombre_usuario"></div>
                 <img id="img" src=""/>
+                <span class="caption simple-caption">  
+                    <p>Click para pedir imagen!</p>  
+                </span>  
             </div> 
             <div id="plantilla_transmisor_video" class="transmisor_video">
                 <div id="lbl_nombre_usuario"></div>
                 <video id="video" width="320" height="240" autoplay></video>
                 <div id="overlay"></div>
+                <span class="caption simple-caption">  
+                    <p>Click para enviar imagen!</p>  
+                </span>  
             </div> 
         </div>  
     </body>
