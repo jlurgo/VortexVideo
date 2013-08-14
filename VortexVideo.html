@@ -36,11 +36,10 @@
             </div> 
             <div id="plantilla_transmisor_video" class="transmisor_video">
                 <div id="lbl_nombre_usuario"></div>
-                <video id="video" width="320" height="240" autoplay></video>
-                <div id="overlay"></div>
-                <span class="caption simple-caption">  
-                    <p>Click para enviar imagen!</p>  
-                </span>  
+                <img id="btn_camara" src="camara.png" title="Enviar imagen!"/>
+                <canvas id="canvas_transmisor" width="320" height="240"></canvas>   
+                <canvas id="canvas_dibujo" width="320" height="240"></canvas>   
+                <div id="overlay"></div>                
             </div> 
         </div>  
     </body>

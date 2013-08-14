@@ -18,6 +18,16 @@
     color: green;
     font-weight: bold;
     font-size: 20px;
+    z-index: 1;
+}
+
+.transmisor_video #btn_camara{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+    width: 48px;
+    cursor: pointer;  
 }
 
 .transmisor_video #lbl_nombre_usuario{
@@ -41,29 +51,30 @@
     width: 320px;
     background-color:orange;
     margin:5px;
-    
-    cursor: pointer;  
     overflow: hidden;  
     -webkit-box-shadow: 1px 1px 1px 1px #ccc;  
     -moz-box-shadow: 1px 1px 1px 1px #ccc;  
     box-shadow: 1px 1px 1px 1px #ccc;  
 }
 
-.receptor_video img,
-.transmisor_video video{
+.receptor_video img{
     -moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
     height: 240px;
     width: 320px;
-    -moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px; 
     -webkit-transition: all 300ms ease-out;  
     -moz-transition: all 300ms ease-out;  
     -o-transition: all 300ms ease-out;  
     -ms-transition: all 300ms ease-out;  
     transition: all 300ms ease-out;  
+}
+
+.transmisor_video canvas{
+    position:absolute;
+    height: 240px;
+    width: 320px;
+    cursor:crosshair;
 }
 
 .transmisor_video .caption,
@@ -101,7 +112,7 @@
 }  
 
 .transmisor_video #overlay {
-    position: absolute;
+    position: absolute; 
     width: 320px;
     height: 240px;
     left: 0;
