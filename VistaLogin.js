@@ -4,10 +4,14 @@ var VistaLogin = function(opt){
 };
 
 VistaLogin.prototype.start = function(un_panel){
-    this.ui = $('#plantilla_login').clone();
+    var _this = this;    
+    this.ui = $('#plantilla_login').clone();    
     this.txt_nombre_usuario = this.ui.find('#txt_nombre_usuario');
-    var _this = this;
-    
+    this.txt_nombre_usuario.keypress(function(e) {
+        if(e.which == 13) {
+            _this.continuar();
+        }
+    });    
     this.ui.dialog({
         dialogClass: "no-close",
         draggable: false,
@@ -17,10 +21,7 @@ VistaLogin.prototype.start = function(un_panel){
         buttons: [ 
             { text: "Ok", 
              click: function() { 
-                 if(_this.txt_nombre_usuario.val() != ""){
-                    _this.o.callback_usuario(new Usuario(_this.txt_nombre_usuario.val()));
-                    _this.ui.dialog( "close" );
-                 }
+                 _this.continuar();
              } 
             } ]
     }); 
@@ -28,4 +29,11 @@ VistaLogin.prototype.start = function(un_panel){
     $('.ui-button-text').each(function(i){
         $(this).html($(this).parent().attr('text'))
     })
+};
+
+VistaLogin.prototype.continuar = function(){
+    if(this.txt_nombre_usuario.val() != ""){
+        this.o.callback_usuario(new Usuario(this.txt_nombre_usuario.val()));
+        this.ui.dialog( "close" );
+     }
 };

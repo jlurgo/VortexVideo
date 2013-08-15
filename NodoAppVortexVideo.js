@@ -29,10 +29,21 @@ NodoAppVortexVideo.prototype.setUsuarioLogueado = function(un_usuario){
     var _this = this;
     
     this.btn_crear_receptor.click(function(){
-        var un_receptor = new NodoReceptorVideo({nombreUsuarioTransmisor: _this.txt_nombre_amigo.val()});      
-        _this.router.conectarBidireccionalmenteCon(un_receptor);
-        un_receptor.dibujarEn(_this.panel_amigos);
+        _this.crearReceptor();
     });
+    
+    this.txt_nombre_amigo.keypress(function(e) {
+        if(e.which == 13) {
+            _this.crearReceptor();
+        }
+    });    
+};
+
+NodoAppVortexVideo.prototype.crearReceptor = function(){
+    var un_receptor = new NodoReceptorVideo({nombreUsuarioTransmisor: this.txt_nombre_amigo.val()});      
+    this.router.conectarBidireccionalmenteCon(un_receptor);
+    un_receptor.dibujarEn(this.panel_amigos);
+    this.txt_nombre_amigo.val("");
 };
 
 NodoAppVortexVideo.prototype.conectarCon = function(nodo){
