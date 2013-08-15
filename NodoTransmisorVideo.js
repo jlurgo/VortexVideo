@@ -23,7 +23,9 @@ NodoTransmisorVideo.prototype.start = function(){
             function(stream) {
 			_this.video.src = stream;
 			_this.video.play();
-            _this.setupCanvas();
+            setInterval(function(){
+                _this.muestrearVideo();
+            },100);
 		}, errBack);
 	} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
 		navigator.webkitGetUserMedia(
@@ -31,7 +33,9 @@ NodoTransmisorVideo.prototype.start = function(){
             function(stream){
 			_this.video.src = window.webkitURL.createObjectURL(stream);
 			_this.video.play();
-            _this.setupCanvas();
+            setInterval(function(){
+                _this.muestrearVideo();
+            },100);
 		}, errBack);
     }        
     
@@ -42,18 +46,20 @@ NodoTransmisorVideo.prototype.start = function(){
     this.portal.pedirMensajes(new FiltroAND([new FiltroXClaveValor("tipoDeMensaje", "vortex.video.pedidoDeFrame"),
                                              new FiltroXClaveValor("usuarioTransmisor", this.o.nombreUsuario)]),
                                             this.pedidoDeFrameRecibido.bind(this));
-};
-
-NodoTransmisorVideo.prototype.setupCanvas = function(){
-    var _this = this;
-    setInterval(function(){
-        _this.muestrearVideo();
-    },100);
     
     this.canvas = this.ui.find("#canvas_transmisor");
     this.canvas[0].width  = 320;
     this.canvas[0].height = 240;
     this.canvas.context = this.canvas[0].getContext('2d');
+    
+    this.canvas.context.beginPath();
+    this.canvas.context.rect(0, 0, 320, 240);
+    this.canvas.context.fillStyle = 'orange';
+    this.canvas.context.fill();
+    this.canvas.context.lineWidth = 1;
+    this.canvas.context.strokeStyle = 'orange';
+    this.canvas.context.stroke();
+    
     
     this.canvas_dibujo = this.ui.find('#canvas_dibujo');
     this.canvas_dibujo[0].width  = 320;
