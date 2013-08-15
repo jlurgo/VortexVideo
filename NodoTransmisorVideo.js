@@ -61,6 +61,7 @@ NodoTransmisorVideo.prototype.start = function(){
     this.canvas_dibujo[0].height = 240;
     this.canvas_dibujo.context = this.canvas_dibujo[0].getContext('2d');
     
+    
     this.canvas_dibujo.mousedown(function(e){		
         _this.canvas_dibujo.context.fillRect(e.offsetX-1,e.offsetY-1,2,2);	
         _this.canvas_dibujo.context.moveTo(e.offsetX, e.offsetY);
