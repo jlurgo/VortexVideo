@@ -53,14 +53,9 @@ NodoTransmisorVideo.prototype.start = function(){
     this.canvas.context = this.canvas[0].getContext('2d');
     
     this.canvas.context.beginPath();
-    this.canvas.context.rect(0, 0, 320, 240);
     this.canvas.context.fillStyle = 'orange';
-    this.canvas.context.fill();
-    this.canvas.context.lineWidth = 1;
-    this.canvas.context.strokeStyle = 'orange';
-    this.canvas.context.stroke();
-    
-    
+    this.canvas.context.fillRect(0, 0, 320, 240);
+
     this.canvas_dibujo = this.ui.find('#canvas_dibujo');
     this.canvas_dibujo[0].width  = 320;
     this.canvas_dibujo[0].height = 240;
