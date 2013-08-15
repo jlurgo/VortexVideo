@@ -7,6 +7,7 @@ NodoReceptorVideo.prototype.start = function(){
     this.ui = $('#plantilla_receptor_video').clone();
     this.portal = new NodoPortalBidi("receptor de " + this.o.nombreUsuarioTransmisor);
     this.img = this.ui.find("#img");
+    this.img.attr('src', "");
     this.lbl_nombre_usuario = this.ui.find("#lbl_nombre_usuario");
     this.lbl_nombre_usuario.text(this.o.nombreUsuarioTransmisor);
     this.portal.pedirMensajes(new FiltroAND([new FiltroXClaveValor("tipoDeMensaje", "vortex.video.frame"),
